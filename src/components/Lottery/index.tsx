@@ -1,3 +1,5 @@
+import './lottery.css'
+
 interface LotteryProps {
     candidates: string[]
     winner: string | null
