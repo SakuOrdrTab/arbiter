@@ -10,6 +10,10 @@ const Lottery = ({ candidates, winner, setWinner }: LotteryProps) => {
     const handleDrawLottery = () => {
         console.log("Drawing lottery...")
         console.log("Candidates:", candidates)
+        const randomIndex = Math.floor(Math.random() * candidates.length)
+        const selectedWinner = candidates[randomIndex]
+        setWinner(selectedWinner)
+        console.log("Winner selected:", selectedWinner)
     }
 
     // if no winner, return button to draw lottery
