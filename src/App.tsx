@@ -13,7 +13,7 @@ const App = () => {
   return (
     <>
       <Headline />
-      <CandidateList candidates={candidates} />
+      <CandidateList candidates={candidates} setCandidates={setCandidates} />
       <AddCandidate candidates={candidates} setCandidates={setCandidates} />
     </>
   )
