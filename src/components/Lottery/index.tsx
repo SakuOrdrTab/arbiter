@@ -10,6 +10,13 @@ const Lottery = ({ candidates, winner, setWinner }: LotteryProps) => {
     const handleDrawLottery = () => {
         console.log("Drawing lottery...")
         console.log("Candidates:", candidates)
+
+        // Check if the candidates array is empty
+        if (candidates.length === 0) {
+            console.log("No candidates to draw from. Please add candidates.")
+            return
+        }
+
         // pick random index from length of candidates array
         const randomIndex = Math.floor(Math.random() * candidates.length)
         // set winner
