@@ -11,6 +11,13 @@ const AddCandidate = ({ candidates, setCandidates }: AddCandidateProps) => {
     // on form submit, add candidate to candidates array and clear input field
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault()
+
+        // No duplicates to allowed in candidates array
+        if (candidates.includes(candidate)) {
+            console.log("Candidate already exists, not added!")
+            return
+        }
+
         const updatedCandidates = [...candidates, candidate]
         setCandidates(updatedCandidates)
         setCandidate("")
