@@ -13,12 +13,15 @@ const App = () => {
   // if a winner has been decided, it resides in this state
   const [winner, setWinner] = useState<string | null>(null)
 
+  // For not rendering the lottery button when there is <= 1 candidates
+  const tooFewCandidates = candidates.length <= 1
+
   return (
     <div className="main-container">
       <Headline />
       <CandidateList candidates={candidates} setCandidates={setCandidates} />
       {!winner && <AddCandidate candidates={candidates} setCandidates={setCandidates} />}
-      <Lottery candidates={candidates} winner={winner} setWinner={setWinner} />
+      {!tooFewCandidates && <Lottery candidates={candidates} winner={winner} setWinner={setWinner} />}
     </div>
   )
 }
