@@ -6,6 +6,8 @@ interface CandidateListProps {
 }
 
 const CandidateList = ({ candidates, setCandidates }: CandidateListProps) => {
+
+    // remove candidate from candidates array
     const handleRemove = (name: string) => {
         const updatedCandidates = candidates.filter((candidate) => candidate !== name)
         setCandidates(updatedCandidates)

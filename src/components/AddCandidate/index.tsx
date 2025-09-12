@@ -8,6 +8,7 @@ interface AddCandidateProps {
 const AddCandidate = ({ candidates, setCandidates }: AddCandidateProps) => {
     const [candidate, setCandidate] = useState<string>("")
     
+    // on form submit, add candidate to candidates array and clear input field
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault()
         const updatedCandidates = [...candidates, candidate]

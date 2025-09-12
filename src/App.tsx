@@ -17,7 +17,7 @@ const App = () => {
     <div className="main-container">
       <Headline />
       <CandidateList candidates={candidates} setCandidates={setCandidates} />
-      <AddCandidate candidates={candidates} setCandidates={setCandidates} />
+      {!winner && <AddCandidate candidates={candidates} setCandidates={setCandidates} />}
       <Lottery candidates={candidates} winner={winner} setWinner={setWinner} />
     </div>
   )

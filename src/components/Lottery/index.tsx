@@ -10,9 +10,12 @@ const Lottery = ({ candidates, winner, setWinner }: LotteryProps) => {
     const handleDrawLottery = () => {
         console.log("Drawing lottery...")
         console.log("Candidates:", candidates)
+        // pick random index from length of candidates array
         const randomIndex = Math.floor(Math.random() * candidates.length)
+        // set winner
         const selectedWinner = candidates[randomIndex]
         setWinner(selectedWinner)
+
         console.log("Winner selected:", selectedWinner)
     }
 
@@ -28,7 +31,10 @@ const Lottery = ({ candidates, winner, setWinner }: LotteryProps) => {
     // if winner, return winner display
     return (
         <div className="lottery-container">
-            <h2>Winner: {winner}</h2>
+            <div className="winner-confetti">
+                🎉
+                <h2>Winner: {winner}</h2>
+            </div>
         </div>
     )
 }

@@ -4,9 +4,9 @@ interface CandidateProps {
 }
 
 const Candidate = ({ name, onRemove }: CandidateProps) => (
-    <li>
+    <li className="candidate-item">
         {name}
-        <button onClick={() => onRemove(name)}>Remove</button>
+        <button className="remove-button" onClick={() => onRemove(name)}>Remove</button>
     </li>
 )
 
