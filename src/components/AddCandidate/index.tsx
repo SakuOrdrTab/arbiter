@@ -1,6 +1,6 @@
 import { useState, type SyntheticEvent } from "react"
 
-import './addCandidate.css'
+import './AddCandidate.css'
 
 interface AddCandidateProps {
     candidates: string[],

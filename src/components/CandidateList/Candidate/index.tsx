@@ -1,4 +1,4 @@
-import './candidate.css'
+import './Candidate.css'
 
 interface CandidateProps {
     name: string

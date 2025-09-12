@@ -1,6 +1,6 @@
 import Candidate from "./Candidate"
 
-import './candidateList.css'
+import './CandidateList.css'
 
 interface CandidateListProps {
     candidates: string[]

@@ -1,4 +1,4 @@
-import './lottery.css'
+import './Lottery.css'
 
 interface LotteryProps {
     candidates: string[]
