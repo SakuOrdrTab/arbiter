@@ -52,3 +52,5 @@ All in all, this is a static app. You can build static JavaScript dist folder wi
 and that doesn't have a server, dependancies or anything.
 
 This means, that even though the default Docker image is building the whole app from scratch, there are many places, where you can either make a thin Docker image (just the artefacts from dist folder) or even plain html/JS/css and deploy those in a site that provides a platform for static websites for free.
+
+Netlify example: https://randomarbiter.netlify.app/
