@@ -1,17 +1,20 @@
+import { useState } from 'react'
 
 import Headline from './components/Headline'
 import CandidateList from './components/CandidateList'
+import AddCandidate from './components/AddCandidate'
 
 import './App.css'
 
-const debugList = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve', 'Frank']
+const App = () => {
 
-function App() {
+  const [candidates, setCandidates] = useState<string[]>([])
 
   return (
     <>
       <Headline />
-      <CandidateList candidates={debugList} />
+      <CandidateList candidates={candidates} />
+      <AddCandidate candidates={candidates} setCandidates={setCandidates} />
     </>
   )
 }
