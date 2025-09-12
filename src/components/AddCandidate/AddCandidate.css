@@ -1,0 +1,13 @@
+.add-candidate-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.add-candidate-button {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    font-size: larger;
+}

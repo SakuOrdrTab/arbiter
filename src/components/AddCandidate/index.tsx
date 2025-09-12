@@ -1,5 +1,7 @@
 import { useState, type SyntheticEvent } from "react"
 
+import './addCandidate.css'
+
 interface AddCandidateProps {
     candidates: string[],
     setCandidates: React.Dispatch<React.SetStateAction<string[]>>
@@ -32,7 +34,7 @@ const AddCandidate = ({ candidates, setCandidates }: AddCandidateProps) => {
                     value={candidate}
                     onChange={({ target }) => setCandidate(target.value)}
                 />
-                <button type="submit">Add Candidate</button>
+                <button className="add-candidate-button" type="submit">Add Candidate</button>
             </form>
         </div>
     )
