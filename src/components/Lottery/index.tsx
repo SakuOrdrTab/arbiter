@@ -41,8 +41,8 @@ const Lottery = ({ candidates, winner, setWinner }: LotteryProps) => {
     return (
         <div className="lottery-container">
             <div className="winner-confetti">
-                🎉
-                <h2>Winner: {winner}</h2>
+                <h2>the Winner is:</h2><br />
+                <div className="winner-name">{winner}</div>
             </div>
         </div>
     )
