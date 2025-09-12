@@ -1,3 +1,5 @@
+import './candidate.css'
+
 interface CandidateProps {
     name: string
     onRemove: (name: string) => void

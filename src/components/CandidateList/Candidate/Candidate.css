@@ -1,0 +1,17 @@
+.candidate-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.remove-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #c70003;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
