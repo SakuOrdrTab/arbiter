@@ -1,5 +1,7 @@
 import Candidate from "./Candidate"
 
+import './candidateList.css'
+
 interface CandidateListProps {
     candidates: string[]
     setCandidates: React.Dispatch<React.SetStateAction<string[]>>
