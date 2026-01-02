@@ -13,15 +13,15 @@ const App = () => {
   // Track multiple winners
   const [winners, setWinners] = useState<string[]>([])
 
-  // For not rendering the lottery button when there are no remaining candidates
-  const tooFewCandidates = candidates.length <= 1
+  // Need at least 2 candidates to run a lottery
+  const notEnoughForLottery = candidates.length <= 1
 
   return (
     <div className="main-container">
       <Headline />
       <CandidateList candidates={candidates} setCandidates={setCandidates} />
       <AddCandidate candidates={candidates} setCandidates={setCandidates} />
-      {!tooFewCandidates && <Lottery candidates={candidates} winners={winners} setWinners={setWinners} />}
+      {!notEnoughForLottery && <Lottery candidates={candidates} winners={winners} setWinners={setWinners} />}
     </div>
   )
 }
