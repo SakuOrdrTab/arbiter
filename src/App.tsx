@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className="main-container">
       <Headline />
-      <CandidateList candidates={candidates} setCandidates={setCandidates} />
+      <CandidateList candidates={candidates} setCandidates={setCandidates} winners={winners} setWinners={setWinners} />
       <AddCandidate candidates={candidates} setCandidates={setCandidates} />
       {!notEnoughForLottery && <Lottery candidates={candidates} winners={winners} setWinners={setWinners} />}
     </div>
