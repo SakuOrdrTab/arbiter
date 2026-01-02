@@ -10,18 +10,18 @@ import './App.css'
 const App = () => {
 
   const [candidates, setCandidates] = useState<string[]>([])
-  // if a winner has been decided, it resides in this state
-  const [winner, setWinner] = useState<string | null>(null)
+  // Track multiple winners
+  const [winners, setWinners] = useState<string[]>([])
 
-  // For not rendering the lottery button when there is <= 1 candidates
-  const tooFewCandidates = candidates.length <= 1
+  // Need at least 2 candidates to run a lottery
+  const notEnoughForLottery = candidates.length <= 1
 
   return (
     <div className="main-container">
       <Headline />
-      <CandidateList candidates={candidates} setCandidates={setCandidates} />
-      {!winner && <AddCandidate candidates={candidates} setCandidates={setCandidates} />}
-      {!tooFewCandidates && <Lottery candidates={candidates} winner={winner} setWinner={setWinner} />}
+      <CandidateList candidates={candidates} setCandidates={setCandidates} winners={winners} setWinners={setWinners} />
+      <AddCandidate candidates={candidates} setCandidates={setCandidates} />
+      {!notEnoughForLottery && <Lottery candidates={candidates} winners={winners} setWinners={setWinners} />}
     </div>
   )
 }

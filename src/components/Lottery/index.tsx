@@ -2,34 +2,37 @@ import './Lottery.css'
 
 interface LotteryProps {
     candidates: string[]
-    winner: string | null
-    setWinner: React.Dispatch<React.SetStateAction<string | null>>
+    winners: string[]
+    setWinners: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-const Lottery = ({ candidates, winner, setWinner }: LotteryProps) => {
+const Lottery = ({ candidates, winners, setWinners }: LotteryProps) => {
     
+    // Get remaining candidates (exclude already selected winners)
+    const remainingCandidates = candidates.filter(candidate => !winners.includes(candidate))
+
     // lottery logic here
     const handleDrawLottery = () => {
         console.log("Drawing lottery...")
-        console.log("Candidates:", candidates)
+        console.log("Remaining Candidates:", remainingCandidates)
 
-        // Check if the candidates array is empty
-        if (candidates.length === 0) {
-            console.log("No candidates to draw from. Please add candidates.")
+        // Check if there are remaining candidates
+        if (remainingCandidates.length === 0) {
+            console.log("No more candidates to draw from.")
             return
         }
 
-        // pick random index from length of candidates array
-        const randomIndex = Math.floor(Math.random() * candidates.length)
-        // set winner
-        const selectedWinner = candidates[randomIndex]
-        setWinner(selectedWinner)
+        // pick random index from length of remaining candidates array
+        const randomIndex = Math.floor(Math.random() * remainingCandidates.length)
+        // select winner
+        const selectedWinner = remainingCandidates[randomIndex]
+        setWinners([...winners, selectedWinner])
 
         console.log("Winner selected:", selectedWinner)
     }
 
-    // if no winner, return button to draw lottery
-    if (!winner) {
+    // if no winners yet, return button to draw lottery
+    if (winners.length === 0) {
         return (
             <div className="lottery-container">
                 <button className="lottery-button" onClick={handleDrawLottery}>Draw Lottery</button>
@@ -37,13 +40,22 @@ const Lottery = ({ candidates, winner, setWinner }: LotteryProps) => {
         )
     }
 
-    // if winner, return winner display
+    // if winners exist, return winner display and draw another button
     return (
         <div className="lottery-container">
             <div className="winner-confetti">
-                <h2>the Winner is:</h2><br />
-                <div className="winner-name">{winner}</div>
+                <h2>{winners.length === 1 ? 'the Winner is:' : 'the Winners are:'}</h2><br />
+                {winners.map((winner, index) => (
+                    <div key={winner} className="winner-name">
+                        {index + 1}. {winner}
+                    </div>
+                ))}
             </div>
+            {remainingCandidates.length > 0 && (
+                <button className="lottery-button draw-another-button" onClick={handleDrawLottery}>
+                    Draw Another
+                </button>
+            )}
         </div>
     )
 }
