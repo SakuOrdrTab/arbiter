@@ -9,15 +9,11 @@ interface LotteryProps {
 const Lottery = ({ candidates, winners, setWinners }: LotteryProps) => {
     
     // Get remaining candidates (exclude already selected winners)
-    const getRemainingCandidates = () => {
-        return candidates.filter(candidate => !winners.includes(candidate))
-    }
+    const remainingCandidates = candidates.filter(candidate => !winners.includes(candidate))
 
     // lottery logic here
     const handleDrawLottery = () => {
         console.log("Drawing lottery...")
-        
-        const remainingCandidates = getRemainingCandidates()
         console.log("Remaining Candidates:", remainingCandidates)
 
         // Check if there are remaining candidates
@@ -34,8 +30,6 @@ const Lottery = ({ candidates, winners, setWinners }: LotteryProps) => {
 
         console.log("Winner selected:", selectedWinner)
     }
-
-    const remainingCandidates = getRemainingCandidates()
 
     // if no winners yet, return button to draw lottery
     if (winners.length === 0) {
